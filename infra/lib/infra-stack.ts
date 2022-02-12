@@ -12,8 +12,8 @@ new apprunner.Service(this, 'Service', {
     codeConfigurationValues: {
       runtime: apprunner.Runtime.PYTHON_3,
       port: '8000',
-      startCommand: './.venv/bin/python manage.py runserver',
-      buildCommand: 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && source $HOME/.poetry/env && poetry install',
+      startCommand: 'python manage.py runserver',
+      buildCommand: 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && source $HOME/.poetry/env && poetry install && poetry export -f requirements.txt --output requirements.txt && pip install -r requirements.txt',
     },
     connection: apprunner.GitHubConnection.fromConnectionArn('arn:aws:apprunner:us-east-1:847136656635:connection/brian-github/9f4abc9e7627446fb76f838ba0ed3fbc'),
   }),
