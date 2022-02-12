@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d&d-&6g$ps*dp$*t#kaxfib3@7b-=w$%k@i6!_(f$vtl!fi80f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['p8bv24bbv2.us-east-1.awsapprunner.com']
 
 
 # Application definition
@@ -75,12 +75,8 @@ WSGI_APPLICATION = 'cali.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'somePassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
