@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-d&d-&6g$ps*dp$*t#kaxfib3@7b-=w$%k@i6!_(f$vtl!fi80f
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost:8000','p8bv24bbv2.us-east-1.awsapprunner.com']
+CSRF_TRUSTED_ORIGINS = ['p8bv24bbv2.us-east-1.awsapprunner.com']
 
 
 # Application definition
