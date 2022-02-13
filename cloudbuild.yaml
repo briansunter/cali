@@ -53,7 +53,7 @@ substitutions:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/django-341122/secrets/djangopass/versions/1
+  - versionName: projects/222387008465/secrets/djangopass
     env: DATABASE_PASS
 
 images:
