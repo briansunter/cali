@@ -23,7 +23,8 @@
         "2",
         "--no-input",
       ]
- - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+ - id: 'deploy' 
+   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
    entrypoint: gcloud
    args:
    - 'run'
