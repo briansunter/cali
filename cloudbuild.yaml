@@ -9,6 +9,11 @@
 
   - id: "apply migrations"
     name: "gcr.io/google-appengine/exec-wrapper"
+    secretEnv: ['DATABASE_PASS']
+    env:
+      - 'DATABASE_PORT=6543'
+      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
+      - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
     args:
       [
         "-i",
@@ -23,6 +28,11 @@
 
   - id: "collect static"
     name: "gcr.io/google-appengine/exec-wrapper"
+    secretEnv: ['DATABASE_PASS']
+    env:
+      - 'DATABASE_PORT=6543'
+      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
+      - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
     args:
       [
         "-i",
@@ -42,6 +52,11 @@ substitutions:
   _REGION: us-west1
   _SERVICE_NAME: django2
   _SECRET_SETTINGS_NAME: djangosecret
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/django-341122/secrets/djangopass/versions/1
+    env: 'DATABASE_PASS'
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
