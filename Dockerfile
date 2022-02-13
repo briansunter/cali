@@ -1,4 +1,4 @@
-FROM 847136656635.dkr.ecr.us-east-1.amazonaws.com/python:3.9-slim
+FROM python:3.9-slim
 
 ENV PYTHONUNBUFFERED 1
 
