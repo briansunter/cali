@@ -23,6 +23,7 @@ env = environ.Env(
     DATABASE_HOST=(str, "localhost"),
     DATABASE_PORT=(str, "5432"),
     ENV_PATH=(str, BASE_DIR),
+    GS_BUCKET_NAME=(str,"django-341122_djangob")
 )
 
 env.read_env(os.path.join(env("ENV_PATH"), ".env"))
@@ -149,3 +150,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+GS_BUCKET_NAME = env("GS_BUCKET_NAME")
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+GS_DEFAULT_ACL = "publicRead"
