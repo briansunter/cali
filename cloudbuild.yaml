@@ -12,7 +12,6 @@
     secretEnv: ['DATABASE_PASS']
     env:
       - 'DATABASE_PORT=6543'
-      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
       - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
     args:
       [
@@ -31,7 +30,6 @@
     secretEnv: ['DATABASE_PASS']
     env:
       - 'DATABASE_PORT=6543'
-      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
       - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
     args:
       [
@@ -56,7 +54,7 @@ substitutions:
 availableSecrets:
   secretManager:
   - versionName: projects/django-341122/secrets/djangopass/versions/1
-    env: 'DATABASE_PASS'
+    env: DATABASE_PASS
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
