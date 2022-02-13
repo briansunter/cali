@@ -5,7 +5,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+requirements.txt
+cdk.out
+node_modules
 # C extensions
 *.so
 # Distribution / packaging
