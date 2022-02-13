@@ -9,10 +9,6 @@
 
   - id: "collect static"
     name: "gcr.io/google-appengine/exec-wrapper"
-    secretEnv: ['DATABASE_PASS']
-    env:
-      - 'DATABASE_PORT=6543'
-      - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
     args:
       [
         "-i",
@@ -43,11 +39,6 @@ substitutions:
   _REGION: us-west1
   _SERVICE_NAME: django2
   _SECRET_SETTINGS_NAME: djangosecret
-
-availableSecrets:
-  secretManager:
-  - versionName: projects/222387008465/secrets/djangopass/1
-    env: 'DATABASE_'
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
