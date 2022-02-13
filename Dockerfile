@@ -10,6 +10,10 @@ RUN pip3 install poetry
 
 RUN poetry install
 
+RUN poetry export -f requirements.txt --output requirements.txt
+
+RUN pip install -r requirements.txt
+
 COPY cali cali
 
-CMD poetry run python manage.py runserver 0.0.0.0:8080
+CMD python manage.py runserver 0.0.0.0:8080
