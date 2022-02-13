@@ -18,6 +18,5 @@
    - 'us-west1'
  images:
  - 'gcr.io/$PROJECT_ID/django:$COMMIT_SHA'
-
  options:
   logging: CLOUD_LOGGING_ONLY
