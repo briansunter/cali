@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d&d-&6g$ps*dp$*t#kaxfib3@7b-=w$%k@i6!_(f$vtl!fi80f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','p8bv24bbv2.us-east-1.awsapprunner.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','p8bv24bbv2.us-east-1.awsapprunner.com']
 CSRF_TRUSTED_ORIGINS = ['https://p8bv24bbv2.us-east-1.awsapprunner.com']
 
 
