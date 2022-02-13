@@ -12,19 +12,26 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+import string
 import environ
-
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env(
+    DEBUG=(bool, False),
+    ENV_PATH=(string,BASE_DIR),
+    DATABASE_NAME = (string,"postgres"),
+    DATABASE_USER = (string, "postgres"),
+    DATABASE_PASS = (string, "password"),
+    DATABASE_HOST = (string, "localhost"),
+    DATABASE_PORT = (string, "5432")
+)
+
 environ.Env.read_env(os.path.join(env("ENV_PATH"), '.env'))
 
-env.read_env(env.str('ENV_PATH', '.env'))
+
+
+# env.read_env(env.str('ENV_PATH', '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +44,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-d&d-&6g$ps*dp$*t#kaxfib3@7b-=w$%k@i6!_(f$vtl!fi80f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -143,6 +150,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATIC_URL = "static/"
 
