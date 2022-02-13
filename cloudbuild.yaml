@@ -7,30 +7,8 @@
     name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"]
 
-  - id: "apply migrations"
-    name: "gcr.io/google-appengine/exec-wrapper"
-    secretEnv: ['DATABASE']
-    env:
-      - 'DATABASE_PORT=6543'
-      - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
-    args:
-      [
-        "-i",
-        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}",
-        "-e",
-        "SETTINGS_NAME=${_SECRET_SETTINGS_NAME}",
-        "--",
-        "python",
-        "manage.py",
-        "migrate",
-      ]
-
   - id: "collect static"
     name: "gcr.io/google-appengine/exec-wrapper"
-    secretEnv: ['DATABASE']
-    env:
-      - 'DATABASE_PORT=6543'
-      - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
     args:
       [
         "-i",
