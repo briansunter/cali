@@ -54,7 +54,7 @@ substitutions:
 availableSecrets:
   secretManager:
   - versionName: projects/222387008465/secrets/djangopass
-    env: DATABASE_PASS
+    env: 'DATABASE_PASS'
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
