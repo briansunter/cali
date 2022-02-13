@@ -12,29 +12,20 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-import string
 import environ
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     DEBUG=(bool, False),
-    ENV_PATH=(string,BASE_DIR),
-    DATABASE_NAME = (string,"postgres"),
-    DATABASE_USER = (string, "postgres"),
-    DATABASE_PASS = (string, "password"),
-    DATABASE_HOST = (string, "localhost"),
-    DATABASE_PORT = (string, "5432")
+    DATABASE_NAME=(str, "postgres"),
+    DATABASE_USER=(str, "postgres"),
+    DATABASE_PASS=(str, "password"),
+    DATABASE_HOST=(str, "localhost"),
+    DATABASE_PORT=(str, "5432"),
+    ENV_PATH=(str, BASE_DIR),
 )
 
-environ.Env.read_env(os.path.join(env("ENV_PATH"), '.env'))
-
-
-
-# env.read_env(env.str('ENV_PATH', '.env'))
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+env.read_env(os.path.join(env("ENV_PATH"), ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -111,8 +102,8 @@ DATABASES = {
         "NAME": env("DATABASE_NAME"),
         "USER": env("DATABASE_USER"),
         "PASSWORD": env("DATABASE_PASS"),
-        'HOST': env("DATABASE_HOST"),
-        'DB_PORT': env("DATABASE_PORT")
+        "HOST": env("DATABASE_HOST"),
+        "DB_PORT": env("DATABASE_PORT"),
     }
 }
 
