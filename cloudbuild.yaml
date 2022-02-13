@@ -13,8 +13,6 @@
       [
         "-i",
         "gcr.io/$PROJECT_ID/${_SERVICE_NAME}",
-        "-s",
-        "${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME}",
         "-e",
         "SETTINGS_NAME=${_SECRET_SETTINGS_NAME}",
         "--",
@@ -29,8 +27,6 @@
       [
         "-i",
         "gcr.io/$PROJECT_ID/${_SERVICE_NAME}",
-        "-s",
-        "${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME}",
         "-e",
         "SETTINGS_NAME=${_SECRET_SETTINGS_NAME}",
         "--",
@@ -43,7 +39,6 @@
       ]
 
 substitutions:
-  _INSTANCE_NAME: django-instance
   _REGION: us-west1
   _SERVICE_NAME: django2
   _SECRET_SETTINGS_NAME: djangosecret

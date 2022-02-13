@@ -23,7 +23,7 @@ env = environ.Env(
     DATABASE_HOST=(str, "localhost"),
     DATABASE_PORT=(str, "5432"),
     ENV_PATH=(str, BASE_DIR),
-    GS_BUCKET_NAME=(str,"django-341122_djangob")
+    GS_BUCKET_NAME=(str,"djangob")
 )
 
 env.read_env(os.path.join(env("ENV_PATH"), ".env"))
@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "storages",
+
 ]
 
 MIDDLEWARE = [
