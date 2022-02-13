@@ -1,0 +1,8 @@
+[
+    {
+      "origin": ["https://django2-uyuhbvalea-uw.a.run.app"],
+      "method": ["GET"],
+      "responseHeader": ["Content-Type"],
+      "maxAgeSeconds": 3600
+    }
+]

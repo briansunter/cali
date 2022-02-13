@@ -7,13 +7,13 @@ WORKDIR /usr/src/app
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc 
 
-COPY manage.py poetry.lock pyproject.toml /usr/src/app/
-
 RUN pip3 install poetry
 
-RUN poetry export -f requirements.txt --output requirements.txt
+RUN poetry config virtualenvs.create false
 
-RUN pip install -r requirements.txt
+COPY manage.py poetry.lock pyproject.toml /usr/src/app/
+
+RUN poetry install
 
 COPY cali cali
 
