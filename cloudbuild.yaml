@@ -9,7 +9,7 @@
 
   - id: "apply migrations"
     name: "gcr.io/google-appengine/exec-wrapper"
-    secretEnv: ['DATABASE_PASS']
+    secretEnv: ['DATABASE']
     env:
       - 'DATABASE_PORT=6543'
       - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
@@ -27,7 +27,7 @@
 
   - id: "collect static"
     name: "gcr.io/google-appengine/exec-wrapper"
-    secretEnv: ['DATABASE_PASS']
+    secretEnv: ['DATABASE']
     env:
       - 'DATABASE_PORT=6543'
       - 'DATABASE_HOST=db.xhnfyalwyezgaisbumtw.supabase.co'
@@ -54,7 +54,7 @@ substitutions:
 availableSecrets:
   secretManager:
   - versionName: projects/222387008465/secrets/djangopass/1
-    env: 'DATABASE_PASS'
+    env: 'DATABASE'
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
